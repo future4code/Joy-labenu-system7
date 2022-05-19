@@ -1,0 +1,21 @@
+###
+POST http://localhost:3003/docentes
+Content-Type: application/json
+
+{
+    "nome": "Inocêncio Girafales",
+    "email": "girafales@labenu.com.br",
+    "dataNasc": "15/06/1934",
+    "turmaId": "2"
+}
+
+###
+GET http://localhost:3003/docentes
+
+###
+PUT http://localhost:3003/docentes/
+Content-Type: application/json
+
+{
+    "turmaId": ""
+}
