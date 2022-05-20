@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../connection";
 
-// não ta funcionando também 
-
 export async function changeDocente(
   req: Request,
   res: Response

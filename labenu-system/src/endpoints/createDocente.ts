@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import connection from "../connection";
 import { v4 as generateId } from "uuid";
 
-// não ta funcionando
-
 export async function createDocente(
   req: Request,
   res: Response
