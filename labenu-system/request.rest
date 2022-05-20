@@ -1,0 +1,21 @@
+###
+POST http://localhost:3003/docentes
+Content-Type: application/json
+
+{
+    "nome": "Sherman Klump",
+    "email": "professoraloprado@labenu.com.br",
+    "data_nasc": "1996/06/28",
+    "turma_id": "2"
+}
+
+###
+GET http://localhost:3003/docentes
+
+###
+PUT http://localhost:3003/docentes/287555eb-2983-4802-88dd-6b8b358cee7d
+Content-Type: application/json
+
+{
+    "turma_id": "1"
+}
