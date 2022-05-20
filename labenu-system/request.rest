@@ -19,3 +19,12 @@ Content-Type: application/json
 {
     "turma_id": "1"
 }
+
+###
+POST http://localhost:3003/turma
+Content-Type: application/json
+
+{
+    "nome": "teste5",
+    "modulo": 2
+}
