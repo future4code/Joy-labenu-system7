@@ -28,3 +28,28 @@ Content-Type: application/json
     "nome": "teste5",
     "modulo": 2
 }
+
+###  // insere estudante na tabela
+POST  http://localhost:3003/addEstudante
+Content-Type: application/json 
+
+{
+	"nome": "EstudanteXXXXX",
+	"email": "estuXXXX@email.com",
+	"data_nasc": "2020/01/01",
+    "turma_id": "1"
+}
+
+###  // buscar estudante pelo nome
+GET http://localhost:3003/estudante/estudante2
+
+###  // edita turma do estudante
+PUT  http://localhost:3003/Estudante/edit/1652835837963
+Content-Type: application/json 
+
+{
+    "turma_id": "1"
+}
+
+###  // buscar o estudante e seu respectivo hobby
+GET http://localhost:3003/estudantes/
