@@ -4,6 +4,7 @@ import { createDocente } from "./endpoints/createDocente";
 import { createStudant } from "./endpoints/createStudant";
 import { createTurma } from "./endpoints/createTurma";
 import { editStudant } from "./endpoints/editStudant";
+import { editTurma } from "./endpoints/editTurma";
 import { getAllDocentes } from "./endpoints/getAllDocentes";
 import { getStudantAndHobby } from "./endpoints/getStudantAndHobby";
 import { getStudantByName } from "./endpoints/getStudantByName";
@@ -14,6 +15,9 @@ app.put("/docentes/:id", changeDocente)
 
 //Endpoint para criar uma Turma
 app.post("/turma", createTurma)
+
+// MUDAR MODULO DA TURMA
+app.put("/turma/:id", editTurma)
 
 //INSERE ESTUDANTE NA TABELA
 app.post("/addEstudante", createStudant);
