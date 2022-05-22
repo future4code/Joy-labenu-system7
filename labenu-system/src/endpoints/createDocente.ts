@@ -1,29 +1,34 @@
 import { Request, Response } from "express";
-import connection from "../connection";
-import { v4 as generateId } from "uuid";
+import {v4 as uuid} from "uuid"
+import { Docentes } from "../classes/Docentes"
+import DocentesDatabase from "../database/docenteDatabase"
 
-export async function createDocente(
+export const createDocente = async(
   req: Request,
   res: Response
-): Promise<void> {
-  const id = generateId();
-  const { nome, email, data_nasc, turma_id } = req.body;
-
+): Promise <void> => {
   try {
-    if (nome && email && data_nasc && turma_id) {
-      await connection("Docentes")
-      .insert({
-        id,
-        nome: req.body.nome,
-        email: req.body.email,
-        data_nasc: req.body.data_nasc,
-        turma_id: req.body.turma_id
-      });
-      res.status(201).send({ message: "Docente inserido com sucesso" });
-    } else {
-      res.status(500).send({ message: "Informações inválidas para conclusão do cadastro" });
+    const { nome, email, data_nasc, turma_id } = req.body
+
+    if(!nome || !email || !data_nasc || !turma_id){
+      res.statusCode = 400
+      throw new Error("Informações inválidas para conclusão do cadastro");
     }
+
+    const newDocente: Docentes = {
+      id: uuid(),
+      nome,
+      email,
+      data_nasc,
+      turma_id 
+    }
+    const docenteDatabase = new DocentesDatabase()
+    await docenteDatabase.create(newDocente)
+
+    res.status(201).send("Docente inserido com sucesso!")
   } catch (error: any) {
-    res.status(500).send(error.sqlMessage || error.message);
+    res.status(500).send({
+      message: error.message
+    });
   }
 }
