@@ -1,28 +1,32 @@
 import { Request, Response } from "express";
 import connection from "../connection";
+import {Turma} from "../classes/Turma"
+import { updateTurma } from "../queries/updateTurma";
 
-export async function editTurma(
+export const editTurma = async(
   req: Request,
   res: Response
-): Promise<void> {
-  const { modulo } = req.body;
-
+): Promise <void> => {
   try {
-    if (modulo) {
-      await connection("Turma")
-        .update({
-          modulo: req.body.modulo,
-        })
-        .where({
-          id: req.params.id,
-        });
-      res.status(200).send({ message: "Modulo da turma atualizado!" });
-    } else {
-      res
-        .status(500)
-        .send({ message: "Ausência de informações da turma" });
+    const { modulo } = req.body
+
+    if(!modulo){
+      res.statusCode = 400
+      throw new Error("  selecione um 'modulo' para atualizar a turma");
     }
+
+    const newModulo: Turma = {
+      modulo
+    }
+
+    await updateTurma(newModulo)
+
+    res.status(201).send("Turma atualizada com sucesso!")
   } catch (error: any) {
-    res.status(500).send(error.sqlMessage || error.message);
+    res.status(500).send({
+      message: error.message
+    });
   }
 }
+
+

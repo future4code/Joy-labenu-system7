@@ -20,7 +20,7 @@ Content-Type: application/json
     "turma_id": "2"
 }
 
-###
+### ENDPOINT PARA CRIAR UMA TURMA
 POST http://localhost:3003/turma
 Content-Type: application/json
 
@@ -28,6 +28,12 @@ Content-Type: application/json
     "nome": "teste5",
     "modulo": 2
 }
+
+### ENDPOINT PARA VER TURMAS ATIVAS
+GET http://localhost:3003/turma
+
+### ENDPOINT PARA MUDAR O MODULO DE UMA TURMA
+PUT http://localhost:3003/turma/
 
 ###  // insere estudante na tabela
 POST  http://localhost:3003/addEstudante

@@ -8,6 +8,7 @@ import { editTurma } from "./endpoints/editTurma";
 import { getAllDocentes } from "./endpoints/getAllDocentes";
 import { getStudantAndHobby } from "./endpoints/getStudantAndHobby";
 import { getStudantByName } from "./endpoints/getStudantByName";
+import { getTurma } from "./endpoints/getTurma";
 
 app.post("/docentes", createDocente)
 app.get("/docentes", getAllDocentes)
@@ -18,6 +19,9 @@ app.post("/turma", createTurma)
 
 // MUDAR MODULO DA TURMA
 app.put("/turma/:id", editTurma)
+
+// PEGAR TURMAS ATIVAS
+app.get("turma", getTurma)
 
 //INSERE ESTUDANTE NA TABELA
 app.post("/addEstudante", createStudant);

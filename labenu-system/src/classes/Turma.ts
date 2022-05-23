@@ -2,8 +2,8 @@ import app  from "../app"
 import { createTurma } from "../endpoints/createTurma";
 
 export class Turma {
-   id: string;
-   nome: string;
+   id?: string;
+   nome?: string;
    modulo: number;
 
   constructor(
