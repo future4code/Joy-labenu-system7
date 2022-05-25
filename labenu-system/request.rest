@@ -1,0 +1,61 @@
+###
+POST http://localhost:3003/docentes
+Content-Type: application/json
+
+{
+    "nome": "Professor Raimundo",
+    "email": "raimundo@labenu.com.br",
+    "data_nasc": "1931/04/12",
+    "turma_id": "2"
+}
+
+###
+GET http://localhost:3003/docentes
+
+###
+PUT http://localhost:3003/docentes/e1bcffb5-d345-4102-9f1e-9b01f96a2825
+Content-Type: application/json
+
+{
+    "turma_id": "2"
+}
+
+### ENDPOINT PARA CRIAR UMA TURMA
+POST http://localhost:3003/turma
+Content-Type: application/json
+
+{
+    "nome": "teste5",
+    "modulo": 2
+}
+
+### ENDPOINT PARA VER TURMAS ATIVAS
+GET http://localhost:3003/turma
+
+### ENDPOINT PARA MUDAR O MODULO DE UMA TURMA
+PUT http://localhost:3003/turma/
+
+###  // insere estudante na tabela
+POST  http://localhost:3003/addEstudante
+Content-Type: application/json 
+
+{
+	"nome": "EstudanteXXXXX",
+	"email": "estuXXXX@email.com",
+	"data_nasc": "2020/01/01",
+    "turma_id": "1"
+}
+
+###  // buscar estudante pelo nome
+GET http://localhost:3003/estudante/estudante2
+
+###  // edita turma do estudante
+PUT  http://localhost:3003/Estudante/edit/1652835837963
+Content-Type: application/json 
+
+{
+    "turma_id": "1"
+}
+
+###  // buscar o estudante e seu respectivo hobby
+GET http://localhost:3003/estudantes/
